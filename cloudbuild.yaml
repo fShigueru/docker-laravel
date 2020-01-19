@@ -18,12 +18,12 @@ steps:
 
   - id: "Copiando key:generate"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','cp','/var/www/artisan','key:generate']
+    args: ['exec','-t','app','php','/var/www/artisan','key:generate']
 
   - id: "Copiando migrations"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','cp','/var/www/artisan','migrate']
+    args: ['exec','-t','app','php','/var/www/artisan','migrate']
 
   - id: "Copiando phpunit"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-t','app','cp','/var/www/vendor/bin/phpunit','-c','/var/www/phpunit.xml']
+    args: ['exec','-t','app','php','/var/www/vendor/bin/phpunit','-c','/var/www/phpunit.xml']
